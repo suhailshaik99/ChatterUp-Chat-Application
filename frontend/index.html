@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatter Up</title>
+    <link rel="stylesheet" href="/css/index.css" type="text/css" />
+  </head>
+  <body>
+    <nav>
+      <h1>Chatter Up</h1>
+    </nav>
+    <main>
+      <!----------------------------------------->
+      <div class="main-divs main-one">
+        <header class="header header-one"><p>Online Users</p></header>
+        <div class="users-list">
+          <div class="online-users-div">
+            <p class="user-name-para"><span class="dot"></span>Shaik Suhail</p>
+          </div>
+        </div>
+      </div>
+      <!----------------------------------------->
+      <div class="main-divs main-two">
+        <header class="header header-two">
+          <!-- <p class="typing-class">Someone is typing...</p> -->
+        </header>
+        <div class="chat-box"></div>
+        <div class="footer-div">
+          <div class="input-div">
+            <input
+              type="text"
+              placeholder="Type a message..."
+              id="message-input"
+            />
+          </div>
+          <div class="button-div">
+            <button type="submit" id="send-button">Send</button>
+          </div>
+        </div>
+      </div>
+      <!----------------------------------------->
+      <div class="main-divs main-three">
+        <header class="header header-three"><p>Notifications</p></header>
+      </div>
+      <!-- -------------------------------------->
+    </main>
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script src="/js/index.js"></script>
+  </body>
+</html>

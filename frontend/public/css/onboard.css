@@ -1,0 +1,76 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html {
+    font-size: 62.5%;
+    background-color: bisque;
+}
+
+#onboard-div {
+    width: 40rem;
+    height: 50rem;
+    margin: 15rem auto;
+    border-radius: 2rem;
+    /* border: 2px solid black; */
+    background-color: burlywood;
+    box-shadow: 0.1rem 0.2rem 0.3rem grey;
+    overflow: hidden;
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+    color: black;
+    border-bottom: 2px dotted brown;
+}
+
+.heading h2 {
+    font-size: 2.5rem;
+}
+
+.form-div {
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+}
+
+.form-elements {
+    font-size: 1.8rem;
+    font-weight: bolder;
+    margin-top: 1rem;
+}
+
+.form-elements label {
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.form-elements input {
+    height: 5rem;
+    width: 25rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 1rem;
+    text-decoration: none;
+    padding-left: 1rem;
+    background-color: antiquewhite;
+}
+
+#login-btn {
+    width: 15rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+    position: relative;
+    left: 4.5rem;
+}

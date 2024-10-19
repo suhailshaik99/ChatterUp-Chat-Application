@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatter Up</title>
+    <link rel="stylesheet" href="/css/onboard.css" type="text/css" />
+  </head>
+  <body>
+    <main>
+      <div id="onboard-div">
+        <div class="heading">
+          <h2>Chatter Up</h2>
+        </div>
+        <div class="form-div">
+          <form action="http://localhost:3000/chat" method="post">
+            <div class="form-elements">
+              <label for="username">Enter your name: </label>
+              <input type="text" id="username" name="username" placeholder="Enter your name..."/>
+            </div>
+            <div class="form-elements">
+              <label for="roomId">Enter Room Id: </label>
+              <input
+                type="text"
+                id="roomId"
+                name="roomId"
+                placeholder="Should contain only numbers..."
+              />
+            </div>
+            <div class="form-elements">
+              <label for="emailId">Enter your Email: </label>
+              <input type="text" d="emailId" name="email" placeholder="Enter your email address"
+              required />
+            </div>
+            <div class="form-elements">
+              <button id="login-btn">Start Chatting</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
