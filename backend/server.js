@@ -22,6 +22,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve("frontend", "public")));
 
+app.get("/", (req, res) => {
+  res.redirect("/welcome");
+});
+
 app.get("/welcome", (req, res) => {
   res.sendFile(path.resolve("frontend", "onboard.html"));
 });
@@ -39,16 +43,14 @@ app.all("*", (req, res) => {
   res
     .status(404)
     .send(
-      `Please head towards the url: http://localhost:3000/welcome, enter the necessary details such as the roomId you want to join and get started to hangout with your friend..`
+      `Please head towards the url: http://<domain_name>/welcome, enter the necessary details such as the roomId you want to join and get started to hangout with your friend..`
     );
 });
 
 let onlineUsers = {};
 
 io.on("connection", async (socket) => {
-  const image = `http://localhost:3000/images/${
-    Math.floor(Math.random() * 16) + 1
-  }.jpg`;
+  const image = `/images/${Math.floor(Math.random() * 16) + 1}.jpg`;
   onlineUsers[socket.id] = user_name;
 
   // Room joining event
