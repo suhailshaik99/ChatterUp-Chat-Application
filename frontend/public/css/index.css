@@ -190,7 +190,6 @@ main {
     gap: 0.5rem;
     display: flex;
     flex: 0 0 0;
-
     align-items: center;
     margin-bottom: 0.5rem;
 }
@@ -223,11 +222,58 @@ main {
 .username {
     display: inline-block;
     font-size: 1.2rem;
+    font-weight: 600;
     padding: 0.5rem 0 0 1rem;
 }
 
 .date {
     display: inline-block;
     align-self: flex-end;
+    font-weight: 600;
     padding: 0 0.4rem 0.5rem 0;
+}
+
+@media only screen and (max-width: 430px) {
+    html {
+        font-size: 50%;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .main-one {
+        grid-column: 1;
+        grid-row: 1;
+        height: 15rem;
+    }
+
+    .main-three {
+        grid-column: 2;
+        grid-row: 1;
+        height: 15rem;
+    }
+
+    .main-two {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+    }
+
+    .main-divs {
+        width: 100%;
+    }
+
+    .username {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .date {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
 }

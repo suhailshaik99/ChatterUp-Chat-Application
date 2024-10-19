@@ -74,3 +74,13 @@ html {
     position: relative;
     left: 4.5rem;
 }
+
+@media only screen and (max-width: 430px) {
+    html {
+        font-size: 50%;
+    }
+
+    #onboard-div {
+        margin: 14rem auto;
+    }
+}

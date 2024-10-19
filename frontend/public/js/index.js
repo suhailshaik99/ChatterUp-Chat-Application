@@ -1,7 +1,7 @@
 const socket = io.connect("http://localhost:3000");
 
 let onlineUsers = {};
-let username, roomId, socketId, email;
+let username, roomId, socketId, email, image;
 
 const sendButton = document.getElementById("send-button");
 const messageInput = document.getElementById("message-input");
@@ -15,8 +15,19 @@ p.classList.add("typing-class");
 
 sendButton.addEventListener("click", (e) => {
   e.preventDefault();
-  const message = messageInput.value;
-  socket.emit("group-chat", { username, roomId, message, socketId, email });
+  const message = messageInput.value.trim();
+  if (message === "") {
+    alert("Empty messages cannot be sent, make sure you have typed your message before sending it..");
+    return;
+  }
+  socket.emit("group-chat", {
+    username,
+    roomId,
+    message,
+    socketId,
+    email,
+    image,
+  });
   messageInput.value = "";
 });
 
@@ -34,11 +45,11 @@ socket.on("typingEvent", (typingData) => {
 });
 
 socket.on("user-info", (data) => {
-  username = data.user_name;
+  image = data.image;
   roomId = data.room_Id;
-  socketId = data.socketId;
   email = data.user_email;
-  console.log(data.user_email);
+  socketId = data.socketId;
+  username = data.user_name;
 });
 
 socket.on("chat-hist", (messages) => {
@@ -60,7 +71,7 @@ socket.on("chat-hist", (messages) => {
     usernamePara.classList.add("username");
     imageElem.classList.add("user-profile");
 
-    imageElem.src = "http://localhost:3000/images/6.jpg";
+    imageElem.src = message.profilePicture;
     datePara.textContent = message.shortTime;
     imageElem.alt = "user-profile-picture";
     messagePara.textContent = message.message;
@@ -71,8 +82,6 @@ socket.on("chat-hist", (messages) => {
     // messageBox.append(profDiv, msgDiv);
     // chatBox.appendChild(messageBox);
 
-    console.log(email == message.email);
-    console.log(email, message.email);
     if (email == message.email) {
       messageBox.classList.add("right-div");
       profDiv.classList.add("right-profile");

@@ -46,6 +46,9 @@ app.all("*", (req, res) => {
 let onlineUsers = {};
 
 io.on("connection", async (socket) => {
+  const image = `http://localhost:3000/images/${
+    Math.floor(Math.random() * 16) + 1
+  }.jpg`;
   onlineUsers[socket.id] = user_name;
 
   // Room joining event
@@ -69,6 +72,7 @@ io.on("connection", async (socket) => {
     user_name,
     room_Id,
     user_email,
+    image,
     socketId: socket.id,
   });
 
@@ -77,7 +81,6 @@ io.on("connection", async (socket) => {
   });
 
   socket.on("group-chat", async (data) => {
-    console.log(data.email);
     const currentTime = moment().tz("Asia/Kolkata").format("h:mm A");
     const fullTimeStamp = moment()
       .tz("Asia/Kolkata")
@@ -86,6 +89,7 @@ io.on("connection", async (socket) => {
       username: data.username,
       message: data.message,
       roomId: data.roomId,
+      profilePicture: data.image,
       email: data.email,
       shortTime: currentTime,
       time: fullTimeStamp,
@@ -95,7 +99,7 @@ io.on("connection", async (socket) => {
       username: data.username,
       message: data.message,
       date: currentTime,
-      image: "http://localhost:3000/images/spy.jpeg",
+      image: data.image,
       socket_Id: data.socketId,
     });
   });
