@@ -61,26 +61,18 @@ socket.on("chat-hist", (messages) => {
     const messagePara = document.createElement("p");
     const usernamePara = document.createElement("p");
     const messageBox = document.createElement("div");
-
     msgDiv.classList.add("message-div");
     profDiv.classList.add("profile-div");
     messageBox.classList.add("message-box");
-
     datePara.classList.add("date");
     messagePara.classList.add("message");
     usernamePara.classList.add("username");
     imageElem.classList.add("user-profile");
-
     imageElem.src = message.profilePicture;
     datePara.textContent = message.shortTime;
     imageElem.alt = "user-profile-picture";
     messagePara.textContent = message.message;
     usernamePara.textContent = `~ ${message.username}`;
-
-    // profDiv.appendChild(imageElem);
-    // msgDiv.append(usernamePara, messagePara, datePara);
-    // messageBox.append(profDiv, msgDiv);
-    // chatBox.appendChild(messageBox);
 
     if (email == message.email) {
       messageBox.classList.add("right-div");
@@ -108,16 +100,13 @@ socket.on("group-comm", (data) => {
   const messagePara = document.createElement("p");
   const usernamePara = document.createElement("p");
   const messageBox = document.createElement("div");
-
   msgDiv.classList.add("message-div");
   profDiv.classList.add("profile-div");
   messageBox.classList.add("message-box");
-
   datePara.classList.add("date");
   messagePara.classList.add("message");
   usernamePara.classList.add("username");
   imageElem.classList.add("user-profile");
-
   imageElem.src = data.image;
   datePara.textContent = data.date;
   imageElem.alt = "user-profile-picture";

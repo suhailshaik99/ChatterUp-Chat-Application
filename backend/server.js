@@ -11,6 +11,7 @@ dotenv.config();
 
 const app = express();
 const server = createServer(app);
+
 const io = new Server(server, {
   cors: {
     origin: "*",
@@ -30,7 +31,9 @@ app.get("/welcome", (req, res) => {
   res.sendFile(path.resolve("frontend", "onboard.html"));
 });
 
+// Global variables
 let user_name, room_Id, user_email;
+
 app.post("/chat", (req, res) => {
   res.sendFile(path.resolve("frontend", "index.html"));
   const { username, roomId, email } = req.body;
@@ -47,6 +50,7 @@ app.all("*", (req, res) => {
     );
 });
 
+// Place of onlineUsers object
 let onlineUsers = {};
 
 io.on("connection", async (socket) => {
